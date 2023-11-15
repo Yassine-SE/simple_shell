@@ -12,7 +12,6 @@ int main(int ac, char **av, char **env)
 {
 	char *line = NULL, **token_array = NULL;
 	char *cmd_path = NULL;
-	// char *path = _getenv("PATH");
 	// int i;
 	(void) ac;
 	// (void) av;
