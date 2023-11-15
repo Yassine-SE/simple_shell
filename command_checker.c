@@ -2,6 +2,7 @@
 
 /**
  * command_checker - check
+ * @cm: param
  *
  * Return: Always 0.
  */

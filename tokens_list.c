@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * create_buffer - create
+ * tokens_list - tokens
  *
  * Return: Always 0.
  */

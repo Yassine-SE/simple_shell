@@ -2,6 +2,7 @@
 
 /**
  * process_handler - Process
+ * @token_array: param
  *
  * Return: Always 0.
  */

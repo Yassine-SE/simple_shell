@@ -2,6 +2,7 @@
 
 /**
  * _getenv - get
+ * @name: param
  *
  * Return: Always 0.
  */
