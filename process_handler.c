@@ -12,6 +12,7 @@ void process_handler(char **token_array, char **env)
 	int status;
 	char *command;
 	pid_t pid;
+	(void) env;
 
 	pid = fork();
 	if (pid == -1)
