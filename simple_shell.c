@@ -14,8 +14,6 @@ int main(int ac, char **av, char **env)
 	char *cmd_path = NULL;
 	int j;
 	(void) ac;
-	// (void) av;
-	(void) env;
 
 	while (1)
 	{
@@ -32,18 +30,12 @@ int main(int ac, char **av, char **env)
 		cmd_path = command_checker(token_array[0]);
 		if (cmd_path)
 		{
-			printf("Found\n");
+			process_handler(cmd_path, token_array, env);
 		}
 		else
 		{
 			printf("%s: No such file or directory\n", av[0]);
 		}
-
-
-		/*if (cmd_path)
-			process_handler(cmd_path, token_array, env);
-		else
-			printf("hsh: %lu: %s: not found\n", strlen(token_array[0]), token_array[0]);*/
 
 		free(cmd_path);
 		for (j = 0; token_array[j]; j++)
