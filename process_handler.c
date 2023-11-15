@@ -10,7 +10,6 @@
 void process_handler(char *cmd_path, char **token_array, char **env)
 {
 	int status;
-	char *command;
 	pid_t pid;
 
 	pid = fork();

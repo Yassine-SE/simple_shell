@@ -14,7 +14,8 @@ int main(int ac, char **av, char **env)
 	size_t line_len;
 	int noc = 0;
 	char **token_array = NULL;
-	(void) ac, av;
+	(void) ac;
+	(void) av;
 
 	while (1)
 	{
