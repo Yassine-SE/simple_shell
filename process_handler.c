@@ -29,7 +29,7 @@ void process_handler(char **token_array, char **env)
 		}
 		else
 		{
-			printf("hsh: %u: %s: not found\n", strlen(command), command);
+			printf("hsh: %lu: %s: not found\n", strlen(command), command);
 		}
 		exit(EXIT_SUCCESS);
 	}
