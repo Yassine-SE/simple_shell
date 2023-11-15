@@ -19,7 +19,7 @@ char *_getenv(const char *name)
 		env_key = strtok(tmp, "=");
 		if (strcmp(env_key, name) == 0)
 		{
-			env_value = (NULL, "\n");
+			env_value = strtok(NULL, "\n");
 			env = strdup(env_value);
 			free(tmp);
 			return (env);
