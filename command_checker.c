@@ -11,6 +11,17 @@ char *command_checker(char *cmd)
 	char *dir_tok, *cmd_path;
 	struct stat st;
 	char *path = _getenv("PATH");
+	int j;
+
+	for (j = 0; cmd[j]; j++)
+	{
+		if (cmd[j] == '/')
+		{
+			if (stat(cmd, &st) == 0)
+				return (strdup(cmd));
+			return (NULL);
+		}
+	}
 
 	dir_tok = strtok(path, ":");
 	while (dir_tok)
@@ -22,13 +33,11 @@ char *command_checker(char *cmd)
 		strcpy(cmd_path, dir_tok);
 		strcat(cmd_path, "/");
 		strcat(cmd_path, cmd);
-
 		if (stat(cmd_path, &st) == 0)
 		{
 			free(path);
 			return (cmd_path);
 		}
-
 		free(cmd_path);
 		cmd_path = NULL;
 		dir_tok = strtok(NULL, ":");
