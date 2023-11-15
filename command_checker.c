@@ -12,7 +12,6 @@ char *command_checker(char *cmd)
 	struct stat st;
 	char *path = _getenv("PATH");
 
-	printf("checker = %s\n", path);
 	dir_tok = strtok(path, ":");
 	while (dir_tok)
 	{

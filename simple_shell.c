@@ -26,15 +26,9 @@ int main(int ac, char **av, char **env)
 		token_array = tokens_list(line);
 		if (strcmp(token_array[0], "exit") == 0)
 		{
-			write(1, "\n", 1);
+			write(1, "= ", 2);
 			exit(EXIT_SUCCESS);
 		}
-
-		// for (i = 0; token_array[i]; i++)
-		// {
-		// 	printf("token = %s\n", token_array[i]);
-		// }
-
 
 		cmd_path = command_checker(token_array[0]);
 		if (cmd_path)
