@@ -12,7 +12,7 @@ int main(int ac, char **av, char **env)
 {
 	char *line = NULL, **token_array = NULL;
 	char *cmd_path = NULL;
-	// int i;
+	int j;
 	(void) ac;
 	// (void) av;
 	(void) env;
@@ -53,6 +53,8 @@ int main(int ac, char **av, char **env)
 			printf("hsh: %lu: %s: not found\n", strlen(token_array[0]), token_array[0]);*/
 
 		// free(cmd_path);
+		for (j = 0; token_array[j]; j++)
+			free(token_array[j]);
 		free(token_array);
 		// free(line);
 	}
