@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 
 char **tokens_list(void);
-void command_checker(char *cm);
+char *command_checker(char *cm);
 void process_handler(char **token_array, char **env);
 char *_getenv(const char *name);
 
