@@ -14,10 +14,7 @@ char **tokens_list(char *line)
 
 	token_array = malloc(sizeof(char *) * 1024);
 	if (!token_array)
-	{
-		perror("malloc");
 		exit(EXIT_FAILURE);
-	}
 
 	token = strtok(line, " \t\n");
 	while (token)

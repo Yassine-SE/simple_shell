@@ -7,7 +7,7 @@
  *
  * Return: Always 0.
  */
-void process_handler(char **token_array, char **env)
+void process_handler(char *cmd_path, char **token_array, char **env)
 {
 	int status;
 	char *command;
@@ -15,22 +15,11 @@ void process_handler(char **token_array, char **env)
 
 	pid = fork();
 	if (pid == -1)
-	{
-		perror("fork");
 		exit(EXIT_FAILURE);
-	}
 
 	if (pid == 0)
 	{
-		command = command_checker(token_array[0]);
-		if (command)
-		{
-			execve(command, token_array, env);
-		}
-		else
-		{
-			printf("hsh: %lu: %s: not found\n", strlen(command), command);
-		}
+		execve(cmd_path, token_array, env);
 		exit(EXIT_SUCCESS);
 	}
 	else
