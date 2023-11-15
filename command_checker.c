@@ -20,10 +20,12 @@ char *command_checker(char *cmd)
 		strcpy(cmd_path, token);
 		strcat(cmd_path, "/");
 		strcat(cmd_path, cmd);
+			
+		printf("Checker = %s\n", cmd_path);
 
 		if (stat(cmd_path, &st) == 0)
 		{
-			printf("checker = %s\n", cmd_path);
+			printf("Stat = %s\n", cmd_path);
 			return (cmd_path);
 		}
 
