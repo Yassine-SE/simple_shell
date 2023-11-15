@@ -29,10 +29,12 @@ int main(int ac, char **av, char **env)
 			exit(EXIT_SUCCESS);
 
 		cmd_path = command_checker(token_array[0]);
-		if (cmd_path)
+		printf("path: %s", cmd_path);
+
+		/*if (cmd_path)
 			process_handler(cmd_path, token_array, env);
 		else
-			printf("hsh: %lu: %s: not found\n", strlen(cmd_path), cmd_path);
+			printf("hsh: %lu: %s: not found\n", strlen(cmd_path), cmd_path);*/
 
 		free(token_array);
 	}
