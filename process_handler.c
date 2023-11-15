@@ -33,6 +33,7 @@ void process_handler(char **token_array, char **env)
 		{
 			printf("Command not found\n");
 		}
+		exit(0);
 	}
 	else
 	{
