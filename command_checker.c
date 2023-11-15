@@ -14,25 +14,23 @@ char *command_checker(char *cmd)
 	struct stat st;
 
 	token = strtok(path, ":");
+	printf("Checker = %s\n", token);
+
 	while (token)
 	{
 		cmd_path = malloc(strlen(token) + strlen(cmd) + 2);
 		strcpy(cmd_path, token);
 		strcat(cmd_path, "/");
 		strcat(cmd_path, cmd);
-			
-		printf("Checker = %s\n", cmd_path);
 
 		if (stat(cmd_path, &st) == 0)
 		{
 			printf("Stat = %s\n", cmd_path);
-			free(token);
 			return (cmd_path);
 		}
 
 		free(cmd_path);
 		token = strtok(NULL, ":");
 	}
-	free(token);
 	return (NULL);
 }
