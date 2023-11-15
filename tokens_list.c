@@ -5,20 +5,11 @@
  *
  * Return: Always 0.
  */
-char **tokens_list(void)
+char **tokens_list(char *line)
 {
-	char *line;
-	size_t line_len;
 	char *token;
 	char **token_array = NULL;
-	int noc = 0, i = 0;
-	
-	noc = getline(&line, &line_len, stdin);
-	if (noc == -1)
-	{
-		perror("getline");
-		exit(EXIT_FAILURE);
-	}
+	int i = 0;
 
 	token_array = malloc(sizeof(char *) * 1024);
 	if (!token_array)

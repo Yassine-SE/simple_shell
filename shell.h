@@ -8,7 +8,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-char **tokens_list(void);
+char **tokens_list(char *line);
 char *command_checker(char *cm);
 void process_handler(char **token_array, char **env);
 char *_getenv(const char *name);

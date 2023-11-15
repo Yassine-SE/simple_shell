@@ -10,6 +10,9 @@
  */
 int main(int ac, char **av, char **env)
 {
+	char *line;
+	size_t line_len;
+	int noc = 0;
 	char **token_array = NULL;
 	(void) ac;
 	(void) av;
@@ -18,14 +21,18 @@ int main(int ac, char **av, char **env)
 	{
 		write(1, "$ ", 2);
 
-		token_array = tokens_list();
-		if (strcmp(token_array[0], "exit") == 0)
+		noc = getline(&line, &line_len, stdin);
+		if (noc == -1)
 		{
-			exit(0);
+			perror("getline");
+			exit(EXIT_FAILURE);
 		}
 
-		process_handler(token_array, env);
+		token_array = tokens_list(line);
+		if (strcmp(token_array[0], "exit") == 0)
+			exit(0);
 
+		process_handler(token_array, env);
 		free(token_array);
 	}
 	exit(EXIT_SUCCESS);
