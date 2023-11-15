@@ -22,9 +22,12 @@ char *command_checker(char *cmd)
 		strcat(cmd_path, cmd);
 
 		if (stat(cmd_path, &st) == 0)
+		{
+			printf("checker = %s\n", cmd_path);
 			return (cmd_path);
+		}
 
-		free(cmd_path), cmd_path = NULL;
+		free(cmd_path);
 		token = strtok(NULL, ":");
 	}
 	return (NULL);
