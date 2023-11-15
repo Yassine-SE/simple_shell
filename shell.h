@@ -8,6 +8,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+extern char **environ;
+
 char *user_input(void);
 char **tokens_list(char *line);
 char *command_checker(char *cmd);
