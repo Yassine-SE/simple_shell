@@ -11,7 +11,7 @@
 int main(int ac, char **av, char **env)
 {
 	char *line = NULL, **token_array = NULL, *cmd_path = NULL;
-	int j;
+	// int j;
 	(void) ac;
 
 	while (1)
