@@ -21,9 +21,9 @@ int main(int ac, char **av, char **env)
 		token_array = tokens_list();
 		if (strcmp(token_array[0], "exit") == 0)
 		{
-			exit((EXIT_SUCCESS));
+			exit(0);
 		}
-		
+
 		process_handler(token_array, env);
 
 		free(token_array);

@@ -3,6 +3,7 @@
 /**
  * process_handler - Process
  * @token_array: param
+ * @env: param
  *
  * Return: Always 0.
  */
@@ -24,11 +25,12 @@ void process_handler(char **token_array, char **env)
 		command = command_checker(token_array[0]);
 		if (command)
 		{
-			execve(token_array[0], token_array, env);
+			/* execve(token_array[0], token_array, env); */
+			printf("exerve is working\n");
 		}
 		else
 		{
-			printf("Command not found");
+			printf("Command not found\n");
 		}
 	}
 	else
