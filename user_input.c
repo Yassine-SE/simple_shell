@@ -16,7 +16,7 @@ char *user_input(void)
 	if (noc == -1)
 	{
 		if (isatty(STDIN_FILENO))
-			continue;
+			write(1, "\n", 1);
 
 		write(1, "\n", 1);
 		free(line);
