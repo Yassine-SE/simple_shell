@@ -37,7 +37,7 @@ int main(int ac, char **av, char **env)
 		else
 			printf("hsh: %lu: %s: not found\n", strlen(cmd_path), cmd_path);*/
 
-		free(cmd_path);
+		cmd_path = NULL;
 		free(token_array);
 	}
 	exit(EXIT_SUCCESS);
