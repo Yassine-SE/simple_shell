@@ -30,7 +30,7 @@ int main(int ac, char **av, char **env)
 			exit(EXIT_SUCCESS);
 
 		cmd_path = command_checker(token_array[0]);
-		printf("path: %s", cmd_path);
+		printf("path: %s\n", cmd_path);
 
 		/*if (cmd_path)
 			process_handler(cmd_path, token_array, env);
