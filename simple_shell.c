@@ -11,7 +11,6 @@
 int main(int ac, char **av, char **env)
 {
 	char *line = NULL, **token_array = NULL, *cmd_path = NULL;
-	// int j;
 	(void) ac;
 
 	while (1)
@@ -31,8 +30,6 @@ int main(int ac, char **av, char **env)
 			printf("%s: No such file or directory\n", av[0]);
 
 		free(cmd_path);
-		// for (j = 0; token_array[j]; j++)
-		// 	free(token_array[j]);
 		free(token_array);
 	}
 	exit(EXIT_SUCCESS);
