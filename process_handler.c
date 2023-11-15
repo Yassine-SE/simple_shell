@@ -26,8 +26,7 @@ void process_handler(char **token_array, char **env)
 		command = command_checker(token_array[0]);
 		if (command)
 		{
-			/* execve(token_array[0], token_array, env); */
-			printf("exerve is working\n");
+			execve(token_array[0], token_array, env);
 		}
 		else
 		{
