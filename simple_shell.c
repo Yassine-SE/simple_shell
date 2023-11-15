@@ -30,7 +30,7 @@ int main(int ac, char **av, char **env)
 
 		token_array = tokens_list(line);
 		if (strcmp(token_array[0], "exit") == 0)
-			exit(0);
+			exit(EXIT_SUCCESS);
 
 		process_handler(token_array, env);
 		free(token_array);
