@@ -7,22 +7,22 @@
  *
  * Return: Always 0.
  */
-void process_handler(char *cmd_path, char **token_array, char **env)
-{
-	int status;
-	pid_t pid;
+// void process_handler(char *cmd_path, char **token_array, char **env)
+// {
+// 	int status;
+// 	pid_t pid;
 
-	pid = fork();
-	if (pid == -1)
-		exit(EXIT_FAILURE);
+// 	pid = fork();
+// 	if (pid == -1)
+// 		exit(EXIT_FAILURE);
 
-	if (pid == 0)
-	{
-		execve(cmd_path, token_array, env);
-		exit(EXIT_SUCCESS);
-	}
-	else
-	{
-		wait(&status);
-	}
-}
+// 	if (pid == 0)
+// 	{
+// 		execve(cmd_path, token_array, env);
+// 		exit(EXIT_SUCCESS);
+// 	}
+// 	else
+// 	{
+// 		wait(&status);
+// 	}
+// }
