@@ -8,9 +8,8 @@
  */
 char *command_checker(char *cmd)
 {
-	char *dir_tok, *cmd_path;
+	char *dir_tok, *cmd_path, *path;
 	struct stat st;
-	char *path = _getenv("PATH");
 	int j;
 
 	for (j = 0; cmd[j]; j++)
@@ -22,6 +21,10 @@ char *command_checker(char *cmd)
 			return (NULL);
 		}
 	}
+
+	path = _getenv("PATH");
+	if (!path)
+		return (NULL);
 
 	dir_tok = strtok(path, ":");
 	while (dir_tok)

@@ -31,8 +31,8 @@ int main(int ac, char **av, char **env)
 			printf("%s: No such file or directory\n", av[0]);
 
 		free(cmd_path);
-		for (j = 0; token_array[j]; j++)
-			free(token_array[j]);
+		// for (j = 0; token_array[j]; j++)
+		// 	free(token_array[j]);
 		free(token_array);
 	}
 	exit(EXIT_SUCCESS);
