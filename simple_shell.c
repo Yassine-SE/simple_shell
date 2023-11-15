@@ -15,7 +15,7 @@ int main(int ac, char **av, char **env)
 	// char *path = _getenv("PATH");
 	// int i;
 	(void) ac;
-	(void) av;
+	// (void) av;
 	(void) env;
 
 	while (1)
@@ -44,7 +44,7 @@ int main(int ac, char **av, char **env)
 		}
 		else
 		{
-			printf("Not Found\n");
+			printf("%s: No such file or directory\n", av[0]);
 		}
 
 
