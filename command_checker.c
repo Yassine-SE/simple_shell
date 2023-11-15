@@ -8,27 +8,32 @@
  */
 char *command_checker(char *cmd)
 {
-	char *path = _getenv("PATH");
-	char *token = NULL;
-	char *cmd_path = NULL;
+	char *dir_tok, *cmd_path;
 	struct stat st;
+	char *path = _getenv("PATH");
 
 	printf("checker = %s\n", path);
-	token = strtok(path, ":");
-	while (token)
+	dir_tok = strtok(path, ":");
+	while (dir_tok)
 	{
-		cmd_path = malloc(strlen(token) + strlen(cmd) + 2);
-		strcpy(cmd_path, token);
+		cmd_path = malloc(strlen(dir_tok) + strlen(cmd) + 2);
+		if (!cmd_path)
+			exit(EXIT_FAILURE);
+
+		strcpy(cmd_path, dir_tok);
 		strcat(cmd_path, "/");
 		strcat(cmd_path, cmd);
 
 		if (stat(cmd_path, &st) == 0)
 		{
+			free(path);
 			return (cmd_path);
 		}
 
 		free(cmd_path);
-		token = strtok(NULL, ":");
+		cmd_path = NULL;
+		dir_tok = strtok(NULL, ":");
 	}
+	free(path);
 	return (NULL);
 }

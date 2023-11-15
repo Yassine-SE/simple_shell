@@ -9,16 +9,23 @@
 char *_getenv(const char *name)
 {
 	extern char **environ;
-	char *env_key;
+	char *env_key, *env_value;
+	char *tmp, *env;
 	int i = 0;
 
 	while (environ[i])
 	{
-		env_key = strtok(environ[i], "=");
+		tmp = strdup(environ[i]);
+		env_key = strtok(tmp, "=");
 		if (strcmp(env_key, name) == 0)
 		{
-			return (strtok(NULL, "\n"));
+			env_value = (NULL, "\n");
+			env = strdup(env_value);
+			free(tmp);
+			return (env);
 		}
+		free(tmp);
+		tmp = NULL;
 		i++;
 	}
 	return (NULL);
