@@ -16,6 +16,7 @@ int main(int ac, char **av, char **env)
 	char **token_array = NULL;
 	(void) ac;
 	(void) av;
+	(void) env;
 
 	while (1)
 	{
