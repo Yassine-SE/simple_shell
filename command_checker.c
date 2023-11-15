@@ -2,30 +2,29 @@
 
 /**
  * command_checker - check
- * @cm: param
+ * @cmd: param
  *
  * Return: Always 0.
  */
-char *command_checker(char *cm)
+char *command_checker(char *cmd)
 {
 	char *path = _getenv("PATH");
-	char *token, *command;
+	char *token = NULL;
+	char *cmd_path = NULL;
 	struct stat st;
 
 	token = strtok(path, ":");
 	while (token)
 	{
-		command = malloc(strlen(token) + strlen(cm) + 2);
-		strcpy(command, token);
-		strcat(command, "/");
-		strcat(command, cm);
+		cmd_path = malloc(strlen(token) + strlen(cmd) + 2);
+		strcpy(cmd_path, token);
+		strcat(cmd_path, "/");
+		strcat(cmd_path, cmd);
 
-		if (stat(command, &st) == 0)
-		{
-			return (command);
-		}
+		if (stat(cmd_path, &st) == 0)
+			return (cmd_path);
 
-		free(command);
+		free(cmd_path), cmd_path = NULL;
 		token = strtok(NULL, ":");
 	}
 	return (NULL);

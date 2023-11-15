@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/wait.h>
+// #include <sys/wait.h>
 #include <sys/stat.h>
 
+char *user_input(void);
 char **tokens_list(char *line);
 char *command_checker(char *cm);
 void process_handler(char *cmd_path, char **token_array, char **env);

@@ -8,7 +8,7 @@
  */
 char **tokens_list(char *line)
 {
-	char *token;
+	char *token = NULL;
 	char **token_array = NULL;
 	int i = 0;
 
@@ -24,5 +24,6 @@ char **tokens_list(char *line)
 		i++;
 	}
 	token_array[i] = NULL;
+
 	return (token_array);
 }
