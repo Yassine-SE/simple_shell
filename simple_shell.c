@@ -16,7 +16,6 @@ int main(int ac, char **av, char **env)
 	char **token_array = NULL;
 	(void) ac;
 	(void) av;
-	(void) env;
 
 	while (1)
 	{
@@ -32,10 +31,10 @@ int main(int ac, char **av, char **env)
 		cmd_path = command_checker(token_array[0]);
 		printf("path: %s\n", cmd_path);
 
-		/*if (cmd_path)
+		if (cmd_path)
 			process_handler(cmd_path, token_array, env);
 		else
-			printf("hsh: %lu: %s: not found\n", strlen(cmd_path), cmd_path);*/
+			printf("hsh: %lu: %s: not found\n", strlen(token_array[0]), token_array[0]);
 
 		cmd_path = NULL;
 		free(token_array);
