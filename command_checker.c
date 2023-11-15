@@ -22,10 +22,8 @@ char *command_checker(char *cmd)
 		strcat(cmd_path, "/");
 		strcat(cmd_path, cmd);
 
-		printf("while = %s\n", cmd_path);
 		if (stat(cmd_path, &st) == 0)
 		{
-			free(path);
 			return (cmd_path);
 		}
 
