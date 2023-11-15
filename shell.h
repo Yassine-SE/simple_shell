@@ -10,7 +10,7 @@
 
 char *user_input(void);
 char **tokens_list(char *line);
-char *command_checker(char *cmd, char *path);
+char *command_checker(char *cmd);
 void process_handler(char *cmd_path, char **token_array, char **env);
 char *_getenv(const char *name);
 

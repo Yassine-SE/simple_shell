@@ -12,7 +12,7 @@ int main(int ac, char **av, char **env)
 {
 	char *line = NULL, **token_array = NULL;
 	char *cmd_path = NULL;
-	char *path = _getenv("PATH");
+	// char *path = _getenv("PATH");
 	// int i;
 	(void) ac;
 	(void) av;
@@ -35,13 +35,18 @@ int main(int ac, char **av, char **env)
 		// {
 		// 	printf("token = %s\n", token_array[i]);
 		// }
-		
 
-		printf("path = %s\n", path);
 
-		cmd_path = command_checker(token_array[0], path);
+		cmd_path = command_checker(token_array[0]);
+		if (cmd_path)
+		{
+			printf("Found\n");
+		}
+		else
+		{
+			printf("Not Found\n");
+		}
 
-		printf("CMD_Path = %s\n", cmd_path);
 
 		/*if (cmd_path)
 			process_handler(cmd_path, token_array, env);

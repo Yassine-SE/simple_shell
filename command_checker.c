@@ -6,29 +6,14 @@
  *
  * Return: Always 0.
  */
-char *command_checker(char *cmd, char *path)
+char *command_checker(char *cmd)
 {
-	char *token = NULL;
-	char *cmd_path = NULL;
 	struct stat st;
 
-	printf("checker = %s\n", path);
-	token = strtok(path, ":");
-	while (token)
+	if (stat(cmd, &st) == 0)
 	{
-		cmd_path = malloc(strlen(token) + strlen(cmd) + 2);
-		strcpy(cmd_path, token);
-		strcat(cmd_path, "/");
-		strcat(cmd_path, cmd);
-
-		printf("while = %s\n", cmd_path);
-		if (stat(cmd_path, &st) == 0)
-		{
-			return (cmd_path);
-		}
-
-		free(cmd_path);
-		token = strtok(NULL, ":");
+		return (cmd);
 	}
+
 	return (NULL);
 }
