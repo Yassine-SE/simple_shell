@@ -26,7 +26,6 @@ int main(int ac, char **av, char **env)
 		token_array = tokens_list(line);
 		if (strcmp(token_array[0], "exit") == 0)
 		{
-			write(1, "= ", 2);
 			exit(EXIT_SUCCESS);
 		}
 

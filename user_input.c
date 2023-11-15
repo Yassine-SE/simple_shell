@@ -15,6 +15,7 @@ char *user_input(void)
 	noc = getline(&line, &line_len, stdin);
 	if (noc == -1)
 	{
+		write(1, "= ", 2);
 		free(line);
 		return (NULL);
 	}
