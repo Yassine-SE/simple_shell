@@ -53,7 +53,7 @@ int main(int ac, char **av, char **env)
 			printf("hsh: %lu: %s: not found\n", strlen(token_array[0]), token_array[0]);*/
 
 		// free(cmd_path);
-		// free(token_array);
+		free(token_array);
 		// free(line);
 	}
 
