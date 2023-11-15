@@ -6,9 +6,10 @@
  *
  * Return: Always 0.
  */
-void process_handler(char *token_array)
+void process_handler(char **token_array, char **env)
 {
 	int status;
+	char *command;
 	pid_t pid;
 
 	pid = fork();
@@ -20,10 +21,14 @@ void process_handler(char *token_array)
 
 	if (pid == 0)
 	{
-		if (execve(token_array[0], token_array, NULL) == -1)
+		command = command_checker(token_array[0]);
+		if (command)
 		{
-			perror("execve");
-			exit(EXIT_FAILURE);
+			execve(token_array[0], token_array, env);
+		}
+		else
+		{
+			printf("Command not found");
 		}
 	}
 	else

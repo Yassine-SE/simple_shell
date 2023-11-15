@@ -6,14 +6,28 @@
  *
  * Return: Always 0.
  */
-void command_checker(char *cm)
+char *command_checker(char *cm)
 {
-	if (access(cm, F_OK) == 0)
+	char *path = _getenv("PATH");
+	char *token;
+	char *command;
+	struct stat st;
+
+	token = strtok(path, ":");
+	while (token)
 	{
-		printf("%s: Found\n", cm);
+		command = malloc(strlen(token) + strlen(cm) + 2);
+		strcpy(command, token);
+		strcat(command, "/");
+		strcat(command, cm);
+
+		if (stat(command, &st) == 0)
+		{
+			return (command);
+		}
+
+		free(command);
+		token = strtok(NULL, ":");
 	}
-	else
-	{
-		printf("%s: Not Found\n", cm);
-	}
+	return (NULL);
 }
