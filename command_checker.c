@@ -13,6 +13,7 @@ char *command_checker(char *cmd)
 	char *cmd_path = NULL;
 	struct stat st;
 
+	printf("Path = %s\n", path);
 	token = strtok(path, ":");
 	printf("Checker = %s\n", token);
 

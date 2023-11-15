@@ -37,7 +37,7 @@ int main(int ac, char **av, char **env)
 		
 
 		cmd_path = command_checker(token_array[0]);
-		printf("Path = %s\n", cmd_path);
+		printf("MAIN = %s\n", cmd_path);
 
 		/*if (cmd_path)
 			process_handler(cmd_path, token_array, env);
