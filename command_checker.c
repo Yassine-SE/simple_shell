@@ -9,8 +9,7 @@
 char *command_checker(char *cm)
 {
 	char *path = _getenv("PATH");
-	char *token;
-	char *command;
+	char *token, *command;
 	struct stat st;
 
 	token = strtok(path, ":");

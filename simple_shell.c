@@ -10,12 +10,13 @@
  */
 int main(int ac, char **av, char **env)
 {
-	char *line, *cmd_path;
-	size_t line_len;
-	int noc = 0;
+	char *line = NULL, *cmd_path;
+	size_t line_len = 0;
+	ssize_t noc = 0;
 	char **token_array = NULL;
 	(void) ac;
 	(void) av;
+	(void) env;
 
 	while (1)
 	{
@@ -31,13 +32,14 @@ int main(int ac, char **av, char **env)
 		cmd_path = command_checker(token_array[0]);
 		printf("path: %s\n", cmd_path);
 
-		if (cmd_path)
+		/*if (cmd_path)
 			process_handler(cmd_path, token_array, env);
 		else
-			printf("hsh: %lu: %s: not found\n", strlen(token_array[0]), token_array[0]);
+			printf("hsh: %lu: %s: not found\n", strlen(token_array[0]), token_array[0]);*/
 
-		cmd_path = NULL;
+		free(cmd_path);
 		free(token_array);
+		free(line);
 	}
 	exit(EXIT_SUCCESS);
 }
