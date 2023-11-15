@@ -26,11 +26,13 @@ char *command_checker(char *cmd)
 		if (stat(cmd_path, &st) == 0)
 		{
 			printf("Stat = %s\n", cmd_path);
+			free(token);
 			return (cmd_path);
 		}
 
 		free(cmd_path);
 		token = strtok(NULL, ":");
 	}
+	free(token);
 	return (NULL);
 }
