@@ -2,16 +2,15 @@
 
 /**
  * main - Simple shell
- * @ac: param
- * @av: param
- * @env: param
  *
  * Return: Always 0.
  */
-int main(int ac, char **av, char **env)
+int main(int ac, char **av)
 {
-	char *line = NULL, **token_array = NULL, *cmd_path = NULL;
+	char *line;
+	char **token_array = NULL;
 	(void) ac;
+	(void) av;
 
 	while (1)
 	{
@@ -19,17 +18,16 @@ int main(int ac, char **av, char **env)
 		if (!line)
 			exit(EXIT_FAILURE);
 
-		token_array = tokens_list(line);
-		if (strcmp(token_array[0], "exit") == 0)
-			exit(EXIT_SUCCESS);
+		if (strlen(line) > 1)
+		{
+			token_array = tokens_list(line);
 
-		cmd_path = command_checker(token_array[0]);
-		if (cmd_path)
-			process_handler(cmd_path, token_array, env);
-		else
-			printf("%s: No such file or directory\n", av[0]);
+			if (execve(token_array[0], token_array, NULL) == -1)
+				error_handler(av[0], " : No such file or directory");
+			else
+				error_handler(av[0], " : Command found");
+		}
 
-		free(cmd_path);
 		free(token_array);
 	}
 	exit(EXIT_SUCCESS);
