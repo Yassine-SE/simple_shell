@@ -10,7 +10,6 @@ int main(int ac, char **av)
 	char *line;
 	char **token_array = NULL;
 	(void) ac;
-	(void) av;
 
 	while (1)
 	{
