@@ -21,10 +21,10 @@ int main(int ac, char **av)
 		{
 			token_array = tokens_list(line);
 
-			if (execve(token_array[0], token_array, NULL) == -1)
-				error_handler(av[0], " : No such file or directory");
+			if (command_checker(token_array[0]))
+				execve(token_array[0], token_array, NULL);
 			else
-				error_handler(av[0], " : Command found");
+				error_handler(av[0], " : No such file or directory");
 		}
 
 		free(token_array);
