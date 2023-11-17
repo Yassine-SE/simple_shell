@@ -27,6 +27,7 @@ int main(int ac, char **av)
 				error_handler(av[0], " : No such file or directory");
 		}
 
+		free(line);
 		free(token_array);
 	}
 	exit(EXIT_SUCCESS);
