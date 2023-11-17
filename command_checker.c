@@ -9,7 +9,6 @@
 char *command_checker(char *cmd)
 {
 	struct stat st;
-	int j;
 
 	if (stat(cmd, &st) == 0)
 		return (cmd);
